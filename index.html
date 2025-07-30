@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shift Dell Team - CS2 Esports</title>
+    <style>
+        :root {
+            --primary: #00aa00; /* Verde CS */
+            --secondary: #000000; /* Preto */
+            --accent: #ffffff; /* Branco */
+            --dark-bg: #111111;
+            --light-bg: #f5f5f5;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--accent);
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            transition: background-image 0.5s ease-in-out;
+        }
+        
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px 0;
+            border-bottom: 3px solid var(--primary);
+        }
+        .header-banner {
+          background-image: url("Shiftdelllogo.png"); /* nome da sua imagem */
+           background-size: cover;
+          background-position: center;
+           background-repeat: no-repeat;
+          height: 300px; /* ajuste como quiser */
+          width: 100%;
+}
+        
+        .logo-container {
+            text-align: center;
+        }
+        
+        .logo {
+            max-width: 300px;
+            height: auto;
+        }
+        
+        nav {
+            background-color: var(--secondary);
+            padding: 15px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        nav li {
+            margin: 0 20px;
+        }
+        
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            min-height: 500px;
+        }
+        
+        .team-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .player-card {
+            background-color: var(--secondary);
+            border: 2px solid var(--primary);
+            border-radius: 5px;
+            width: 250px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .player-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 170, 0, 0.3);
+        }
+        
+        .player-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .player-name {
+            color: var(--primary);
+            font-size: 22px;
+            margin: 10px 0;
+        }
+        
+        .player-role {
+            color: var(--accent);
+            font-style: italic;
+        }
+        
+        .stats-section {
+            margin-top: 50px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-left: 5px solid var(--primary);
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            color: var(--accent);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+            border-top: 3px solid var(--primary);
+        }
+        
+        .social-links a {
+            color: var(--accent);
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        .matches {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .match-card {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .match-date {
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--accent);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #008800;
+        }
+        
+        .empty-schedule {
+            text-align: center;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border: 2px dashed var(--primary);
+            border-radius: 5px;
+        }
+        
+        .map-name {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 14px;
+            color: var(--accent);
+            border-left: 3px solid var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <header class="header-banner"></header>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#team">Time</a></li>
+            <li><a href="#matches">Partidas</a></li>
+            <li><a href="#stats">Estatísticas</a></li>
+            <li><a href="#contact">Contato</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="home">
+            <h1>Bem-vindo ao GorilaZord Team</h1>
+            <p>Equipe profissional de Counter-Strike 2 competindo em torneios nacionais e internacionais.</p>
+            <p>Nosso lema: "Precisão, estratégia e trabalho em equipe acima de tudo!"</p>
+            
+            <div class="highlight-video">
+                <!-- Aqui iria um embed de vídeo dos melhores momentos -->
+                <iframe width="100%" height="450" src="https://www.youtube.com/watch?v=oAxHok_sHwg" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+        
+        <section id="team" class="team-section">
+            <h2 style="width: 100%; text-align: center; color: var(--primary);">Nossos Jogadores</h2>
+            
+            <div class="player-card">
+                <img src="gorilazord.jpg" alt="Gorilazord" class="player-image">
+                <h3 class="player-name">Gorilazord</h3>
+                <p class="player-role">AWPer / IGL</p>
+                <p>Conhecido por suas jogadas agressivas e tiros precisos com AWP.</p>
+            </div>
+            
+            <div class="player-card">
+                <img src="eaglek7.jpg" alt="Eagle K7" class="player-image">
+                <h3 class="player-name">Eagle K7</h3>
+                <p class="player-role">Entry Fragger</p>
+                <p>Especialista em abrir sites e criar vantagem para o time.</p>
+            </div>
+            
+            <div class="player-card">
+                <img src="d4v1.jpg" alt="D4v1" class="player-image">
+                <h3 class="player-name">D4v1</h3>
+                <p class="player-role">Support / Lurker</p>
+                <p>Mestre em jogadas táticas e suporte ao time.</p>
+            </div>
+            
+            <div class="player-card">
+                <img src="npj.jpg" alt="NPJ" class="player-image">
+                <h3 class="player-name">NPJ</h3>
+                <p class="player-role">Rifler / Clutch</p>
+                <p>Conhecido por suas jogadas em situações de 1vX.</p>
+            </div>
+            <div class="player-card">
+                <img src="givaldo.jpg" alt="Givaldo Borracha" class="player-image">
+                <h3 class="player-name">Givaldo Borracha</h3>
+                <p class="player-role">Rifler / Clutch</p>
+                <p>o mais Famoso do Grupo, Flicks Importantes e jogabilidade Absurda.</p>
+            </div>
+        </section>
+        
+        <section id="matches">
+            <h2 style="color: var(--primary);">Próximas Partidas</h2>
+            <div class="matches">
+                <div class="empty-schedule">
+                    <h3>Nenhuma partida agendada no momento</h3>
+                    <p>Volte em breve para conferir nossa agenda de jogos!</p>
+                    <p>Enquanto isso, siga-nos nas redes sociais para atualizações.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="stats" class="stats-section">
+            <h2 style="color: var(--primary);">Estatísticas do Time</h2>
+            <p>Win Rate: 100%</p>
+            <p>K/D Ratio: 0</p>
+            <p>Mapa mais jogado: A definir (100% win rate)</p>
+            <!-- Gráficos de estatísticas poderiam ser adicionados aqui -->
+        </section>
+    </div>
+    
+    <footer id="contact">
+        <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitch"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>© 2023 GorilaZord Team. Todos os direitos reservados.</p>
+        <p>Contato: contato@gorilazordteam.com</p>
+    </footer>
+    
+    <div class="map-name" id="mapName"></div>
+    
+    <!-- Font Awesome para ícones -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <script>
+        // Lista de mapas do CS2 com URLs de imagens (substitua por suas próprias imagens)
+        const maps = [
+            { name: "Dust II", image: "dust2-bg.jpg" },
+            { name: "Mirage", image: "mirage-bg.jpg" },
+            { name: "Inferno", image: "inferno-bg.jpg" },
+            { name: "Nuke", image: "nuke-bg.jpg" },
+            { name: "Overpass", image: "overpass-bg.jpg" },
+            { name: "Train", image: "train-bg.jpg" },
+            { name: "Ancient", image: "ancient-bg.jpg" }
+                ];
+        
+        // Função para selecionar um mapa aleatório
+        function setRandomMap() {
+            const randomMap = maps[Math.floor(Math.random() * maps.length)];
+            document.body.style.backgroundImage = `url('${randomMap.image}')`;
+            document.getElementById('mapName').textContent = `Mapa atual: ${randomMap.name}`;
+            
+            // Armazena o mapa atual no localStorage para persistência durante a navegação
+            localStorage.setItem('currentMap', JSON.stringify(randomMap));
+        }
+        
+        // Verifica se há um mapa armazenado ou define um novo
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedMap = localStorage.getItem('currentMap');
+            
+            if (savedMap) {
+                const map = JSON.parse(savedMap);
+                document.body.style.backgroundImage = `url('${map.image}')`;
+                document.getElementById('mapName').textContent = `Mapa atual: ${map.name}`;
+            } else {
+                setRandomMap();
+            }
+        });
+        
+        // Opcional: Mudar o mapa quando o usuário pressionar F5
+        window.addEventListener('beforeunload', function() {
+            // Limpa o mapa salvo para forçar uma nova seleção aleatória
+            localStorage.removeItem('currentMap');
+        });
+    </script>
+</body>
+</html>
